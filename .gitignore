@@ -7,6 +7,8 @@ node_modules/
 /playwright/.cache/
 e2e
 tests-examples
+auth
+data
 
 
 

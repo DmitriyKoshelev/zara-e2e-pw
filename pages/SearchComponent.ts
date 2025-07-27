@@ -7,15 +7,8 @@ export class SearchPage {
     this.page = page;
   }
 
-  async acceptCookiesIfVisible() {
-    const cookieButton = this.page.getByRole('button', { name: 'Дозволити всі файли cookie' });
-    if (await cookieButton.isVisible()) {
-      await cookieButton.click();
-    }
-  }
-
-  async searchJeans() {
-    await this.page.getByRole('link', { name: 'Пошук' }).click();
+  async searchItem() {
+    await this.page.locator('[data-qa-id="header-search-text-link"]').click();
     const searchBox = this.page.getByRole('searchbox', { name: 'Введення тексту для пошуку' });
     await searchBox.fill('джинси');
     await searchBox.press('Enter');

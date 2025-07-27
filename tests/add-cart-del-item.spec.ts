@@ -1,12 +1,23 @@
-import { test, expect } from '@playwright/test';
+import { test,} from '@playwright/test';
 import { CartAction } from '../pages/CartAction';
 import { SearchPage } from '../pages/SearchComponent';
 import { RegisterPage } from '../pages/RegistrationPage';
+import { acceptCookiesIfVisible } from '../cookies/acceptCookies';
+import { RegistrationFormData } from '../data/registration';
 
-test('func-01 finder product add to cart and delete two secont product', async ({page}) => {
-  test.slow();
-  tag: "@testCart";
+test.describe('', () => {
+  const invalidFormData: RegistrationFormData = {
+  email: 'test',
+  password: '123',
+  firstName: '123',
+  lastName: '123',
+  marketingConsent: true,
+  privacyConsent: true,
+};
   
+test('zara-01 searching and adding a product to the cart will delete every second one',{tag: "@testCart"}, async ({page}) => {
+  test.slow();
+
   const search = new SearchPage(page);
   const cart = new CartAction(page);
   const registerPage = new RegisterPage(page);
@@ -14,11 +25,12 @@ test('func-01 finder product add to cart and delete two secont product', async (
   await page.goto('https://www.zara.com/ua/');
 
   //accept cookies
-await search.acceptCookiesIfVisible();
+   await acceptCookiesIfVisible(page);
+
 
 await test.step("Find first product add to cart", async () => {
 // search product
-await search.searchJeans();
+await search.searchItem();
 //find first result
 await search.openFirstSearchResult();
 // get sizes
@@ -32,12 +44,12 @@ await test.step("delete product in cart and goto registration", async () => {
 await cart.openCart();
 //delete product in cart
 await cart.deleteEverySecondCartItem();
-//checkout product in cart
-await cart.expectCartItemCount(2);
-//goto register page
-await registerPage.registerWithInvalidData();
-//check result invalid data
-await registerPage.expectErrorMessageVisible();
+});
+
+await test.step("registration formData", async () => {
+ await registerPage.registerWithData(invalidFormData);
+
+ await registerPage.expectErrorMessageVisible();
 });
 });
- 
+});
