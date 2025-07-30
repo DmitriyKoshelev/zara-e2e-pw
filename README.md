@@ -1,14 +1,8 @@
-End-to-end UI automation tests for the ZARA online store using Playwright and TypeScript. 
-This project follows the Page Object Model to keep test logic clean, reusable, and maintainable.
-
-
-
-
 
 #  Final Project – Playwright + TypeScript E2E Test Suite
 
-This is an end-to-end (E2E) UI automation testing project built with **Playwright** and **TypeScript**.  
-It focuses on automated testing for an online store interface, including:
+End-to-end UI automation tests for the ZARA online store using Playwright and TypeScript. 
+This project follows the Page Object Model to keep test logic clean, reusable, and maintainable.
 
 -  Negative registration scenarios
 -  Cart interactions (adding and removing items)
@@ -18,7 +12,7 @@ It focuses on automated testing for an online store interface, including:
 
 ##  Project Structure
 
-├── pages/                  # Page Object classes
+├── pages/                              # Page Object classes
 
 │   ├── CartAction.ts
 
@@ -26,21 +20,21 @@ It focuses on automated testing for an online store interface, including:
 
 │   └── RegistrationPage.ts
 
-├── tests/                  # Test files
+├── tests/                              # Test files
 
 │   └── zaraCart.test.ts
 
-├── data/                   # Test data (e.g. registration form values)
+├── data/                               # Test data (e.g. registration form values)
 
 │   └── registration.ts
 
-├── cookies/                # Helper to accept cookies
+├── cookies/                            # Helper to accept cookies
 
 │   └── acceptCookies.ts
 
-├── fixtures.ts             # Custom Playwright fixtures
+├── fixtures.ts                         # Custom Playwright fixtures
 
-├── playwright.config.ts    # Playwright configuration
+├── playwright.config.ts                # Playwright configuration
 
 └── package.json
 
