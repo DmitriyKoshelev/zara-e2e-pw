@@ -1,19 +1,20 @@
-                                          💹This project is the result of my knowledge and skills that I acquired in the courses on automation testing from (sampai DOJO)💹
+                                          This project is the result of my knowledge and skills that 
+                                          I acquired in the courses on automation testing from (sampai DOJO)💹
 
 
 
-# 🧪 Final Project – Playwright + TypeScript E2E Test Suite
+#  Final Project – Playwright + TypeScript E2E Test Suite
 
 This is an end-to-end (E2E) UI automation testing project built with **Playwright** and **TypeScript**.  
 It focuses on automated testing for an online store interface, including:
 
-- ❌ Negative registration scenarios
-- 🛒 Cart interactions (adding and removing items)
-- 📏 Collecting available product sizes
+-  Negative registration scenarios
+-  Cart interactions (adding and removing items)
+-  Collecting available product sizes
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ├── pages/ # Page Object Model classes
 
