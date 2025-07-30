@@ -1,5 +1,5 @@
 import { Page, Locator, expect } from '@playwright/test';
-import { RegistrationFormData } from '../data/registration';
+import { RegistrationFormData } from '../types/registration';
 
 export class RegisterPage {
   readonly page: Page;
@@ -44,10 +44,10 @@ export class RegisterPage {
       await this.privacyCheckbox.click();
     }
 
-    await this.createAccountBtn.click();
+      await this.createAccountBtn.click();
   }
 
   async expectErrorMessageVisible() {
-    await expect(this.errorMessage).toBeVisible();
+      await expect(this.errorMessage).toBeVisible();
   }
 };

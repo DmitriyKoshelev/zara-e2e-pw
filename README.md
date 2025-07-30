@@ -16,13 +16,21 @@ It focuses on automated testing for an online store interface, including:
 ## 📂 Project Structure
 
 ├── pages/ # Page Object Model classes
+
 │ ├── RegisterPage.ts
+
 │ └── CartPage.ts
+
 ├── tests/ # Test specifications
+
 │ ├── register.spec.ts
+
 │ └── cart.spec.ts
+
 ├── playwright.config.ts # Playwright config file
+
 ├── package.json # Project dependencies
+
 └── tsconfig.json # TypeScript config
 
 🚀 Running Tests:
@@ -69,11 +77,11 @@ deleteEverySecondCartItem() — Hover and delete every second item in cart
 
 🛠 Technologies:
 
-🔴Playwright
+-Playwright
 
-🔴TypeScript
+-TypeScript
 
-🔴Node.js
+-Node.js
 
 
 

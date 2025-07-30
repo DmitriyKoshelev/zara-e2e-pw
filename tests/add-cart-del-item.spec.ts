@@ -1,9 +1,6 @@
-import { test,} from '@playwright/test';
-import { CartAction } from '../pages/CartAction';
-import { SearchPage } from '../pages/SearchComponent';
-import { RegisterPage } from '../pages/RegistrationPage';
+import { test,expect} from '../fixtures/fixture';
 import { acceptCookiesIfVisible } from '../cookies/acceptCookies';
-import { RegistrationFormData } from '../data/registration';
+import { RegistrationFormData } from '../types/registration';
 
 test.describe('', () => {
   const invalidFormData: RegistrationFormData = {
@@ -15,41 +12,29 @@ test.describe('', () => {
   privacyConsent: true,
 };
   
-test('zara-01 searching and adding a product to the cart will delete every second one',{tag: "@testCart"}, async ({page}) => {
+test('zara-01 searching and adding a product to the cart will delete every second one',{tag: "@testCart"}, 
+  async ({page, searchPage, cartAction, registerPage}) => {
   test.slow();
 
-  const search = new SearchPage(page);
-  const cart = new CartAction(page);
-  const registerPage = new RegisterPage(page);
+    await page.goto('https://www.zara.com/ua/');
+    await acceptCookiesIfVisible(page);
 
-  await page.goto('https://www.zara.com/ua/');
+  await test.step('Find first product and add to cart', async () => {
+      await searchPage.searchItem('джинси');
+      await searchPage.openFirstSearchResult();
+      const sizes = await cartAction.getlableSizes();
+      await cartAction.addSizeToCart(sizes);
+    });
 
-  //accept cookies
-   await acceptCookiesIfVisible(page);
+  await test.step('Delete product from cart', async () => {
+    await cartAction.openCart();
+    await cartAction.deleteEverySecondCartItem();
+    });
 
+  await test.step("registration formData", async () => {
+    await registerPage.registerWithData(invalidFormData);
 
-await test.step("Find first product add to cart", async () => {
-// search product
-await search.searchItem();
-//find first result
-await search.openFirstSearchResult();
-// get sizes
-const sizes = await cart.getlableSizes();
-//add product sizes
-await cart.addSizeToCart(sizes);
-});
-
-await test.step("delete product in cart and goto registration", async () => {
-//open cart
-await cart.openCart();
-//delete product in cart
-await cart.deleteEverySecondCartItem();
-});
-
-await test.step("registration formData", async () => {
- await registerPage.registerWithData(invalidFormData);
-
- await registerPage.expectErrorMessageVisible();
+    await registerPage.expectErrorMessageVisible();
 });
 });
 });

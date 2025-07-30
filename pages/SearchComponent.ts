@@ -7,14 +7,17 @@ export class SearchPage {
     this.page = page;
   }
 
-  async searchItem() {
+  async searchItem(query: string) {
     await this.page.locator('[data-qa-id="header-search-text-link"]').click();
+
     const searchBox = this.page.getByRole('searchbox', { name: 'Введення тексту для пошуку' });
-    await searchBox.fill('джинси');
+    await searchBox.fill(query);
     await searchBox.press('Enter');
   }
 
   async openFirstSearchResult() {
-    await this.page.getByRole('link', { name: /ДЖИНСИ/i }).first().click();
+    const firstProduct = this.page.locator('[data-qa-qualifier="media-image"]').first();
+    await firstProduct.click();
   }
 }
+
