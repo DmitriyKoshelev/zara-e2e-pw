@@ -17,22 +17,27 @@ It focuses on automated testing for an online store interface, including:
 ---
 
 ##  Project Structure
-.
+
 ├── pages/                  # Page Object classes
 
 │   ├── CartAction.ts
+
 │   ├── SearchComponent.ts
+
 │   └── RegistrationPage.ts
 
 ├── tests/                  # Test files
 
 │   └── zaraCart.test.ts
+
 ├── data/                   # Test data (e.g. registration form values)
 
 │   └── registration.ts
+
 ├── cookies/                # Helper to accept cookies
 
 │   └── acceptCookies.ts
+
 ├── fixtures.ts             # Custom Playwright fixtures
 
 ├── playwright.config.ts    # Playwright configuration
