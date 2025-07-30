@@ -39,20 +39,32 @@ This project follows the Page Object Model to keep test logic clean, reusable, a
 └── package.json
 
 
+
+
 🚀 Running Tests:
+
 npx playwright test
+
 npx playwright test --ui
+
+
 
 🧩 Page Objects Overview
 
 //SearchPage:
 Handles searching for products and selecting search results.
 
+
+
 //CartAction:
 Encapsulates all interactions related to the shopping cart, sizes, and item management.
 
+
+
 //RegisterPage:
 Handles user registration interactions.
+
+
 
 
 ✅ Test Cases:
@@ -60,13 +72,18 @@ Handles user registration interactions.
  ▶️RegisterPage:
 ✔️Negative registration scenario: fill invalid data and expect error message on email field
 
+
+
 ▶️artAction:
 
 ✔️Add item to cart (if needed)
 ✔️Collect all available product sizes
 ✔️Hover and delete every second cart item
 
+
 🔄 Future Enhancements:
+
+
 
 ✅ Add positive registration tests with valid inputs
 
@@ -78,7 +95,10 @@ Handles user registration interactions.
 
 📊 Add Allure or HTML reports
 
+
 🛠 Technologies:
+
+
 
 -Playwright - https://playwright.dev/
 
