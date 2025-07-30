@@ -1,5 +1,7 @@
-                                          This project is the result of my knowledge and skills that 
-                                          I acquired in the courses on automation testing from (sampai DOJO)💹
+End-to-end UI automation tests for the ZARA online store using Playwright and TypeScript. 
+This project follows the Page Object Model to keep test logic clean, reusable, and maintainable.
+
+
 
 
 
@@ -15,24 +17,28 @@ It focuses on automated testing for an online store interface, including:
 ---
 
 ##  Project Structure
+.
+├── pages/                  # Page Object classes
 
-├── pages/ # Page Object Model classes
+│   ├── CartAction.ts
+│   ├── SearchComponent.ts
+│   └── RegistrationPage.ts
 
-│ ├── RegisterPage.ts
+├── tests/                  # Test files
 
-│ └── CartPage.ts
+│   └── zaraCart.test.ts
+├── data/                   # Test data (e.g. registration form values)
 
-├── tests/ # Test specifications
+│   └── registration.ts
+├── cookies/                # Helper to accept cookies
 
-│ ├── register.spec.ts
+│   └── acceptCookies.ts
+├── fixtures.ts             # Custom Playwright fixtures
 
-│ └── cart.spec.ts
+├── playwright.config.ts    # Playwright configuration
 
-├── playwright.config.ts # Playwright config file
+└── package.json
 
-├── package.json # Project dependencies
-
-└── tsconfig.json # TypeScript config
 
 🚀 Running Tests:
 npx playwright test
@@ -40,17 +46,14 @@ npx playwright test --ui
 
 🧩 Page Objects Overview
 
-//RegisterPage.ts:
-goto() — Navigate to homepage
+//SearchPage:
+Handles searching for products and selecting search results.
 
-registerWithInvalidData() — Fill registration form with invalid data
+//CartAction:
+Encapsulates all interactions related to the shopping cart, sizes, and item management.
 
-expectErrorMessageVisible() — Check for error messages
-
-//CartPage.ts:
-getLabelSizes() — Collect available sizes and print count
-
-deleteEverySecondCartItem() — Hover and delete every second item in cart
+//RegisterPage:
+Handles user registration interactions.
 
 
 ✅ Test Cases:
@@ -78,11 +81,11 @@ deleteEverySecondCartItem() — Hover and delete every second item in cart
 
 🛠 Technologies:
 
--Playwright
+-Playwright - https://playwright.dev/
 
--TypeScript
+-TypeScript - https://www.typescriptlang.org/
 
--Node.js
+-Node.js - https://nodejs.org/en
 
 
 
